@@ -1,5 +1,5 @@
 {
-    "name": "tahoelimited/multi-tenancy-bundle",
+    "name": "koertho/multi-tenancy-bundle",
     "type": "symfony-bundle",
     "description": "A multi tenancy bundle for symfony 2 apps",
     "keywords": ["user", "tenant", "tenancy"],
