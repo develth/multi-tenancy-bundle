@@ -22,9 +22,9 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.5",
-        "symfony/framework-bundle": "~2.3",
-        "doctrine/orm": "~2.2,>=2.2.3",
-        "doctrine/doctrine-bundle": "~1.2",
+        "symfony/framework-bundle": "~2.3|~3.N",
+        "doctrine/orm": "~2.2,>=2.2.3|~2.5",
+        "doctrine/doctrine-bundle": "~1.N",
         "symfony/twig-bundle": "~2.3",
         "symfony/form": "~2.3",
         "symfony/security-bundle": "~2.3",
