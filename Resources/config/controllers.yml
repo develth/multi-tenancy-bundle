@@ -2,9 +2,9 @@ services:
     invitation_crud_controller:
         class: Tahoe\Bundle\CrudBundle\Controller\CrudController
         calls:
-            - [ setContainer, [@service_container] ]
-            - [ setRepository, [@invitation_repository]]
-            - [ setFactory, [@invitation_factory]]
+            - [ setContainer, ["@service_container"] ]
+            - [ setRepository, ["@invitation_repository"]]
+            - [ setFactory, ["@invitation_factory"]]
             -
               - setParameters
               -
@@ -16,9 +16,9 @@ services:
     tenantuser_crud_controller:
         class: Tahoe\Bundle\MultiTenancyBundle\Controller\TenantUserController
         calls:
-            - [ setContainer, [@service_container] ]
-            - [ setRepository, [@tenant_user_repository]]
-            - [ setFactory, [@tenant_user_factory]]
+            - [ setContainer, ["@service_container"] ]
+            - [ setRepository, ["@tenant_user_repository"]]
+            - [ setFactory, ["@tenant_user_factory"]]
             -
               - setParameters
               -

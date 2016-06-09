@@ -4,32 +4,32 @@ services:
     tahoe.multi_tenancy.tenant_resolver:
         class: Tahoe\Bundle\MultiTenancyBundle\Service\TenantResolver
         arguments:
-            - @request_stack
+            - "@request_stack"
             - %domain%
-            - @tenant_repository
-            - @security.token_storage
+            - "@tenant_repository"
+            - "@security.token_storage"
             - %tahoe_multi_tenancy.subdomain_strategy%
     tahoe.multi_tenancy.tenant_aware_router:
         class: Tahoe\Bundle\MultiTenancyBundle\Service\TenantAwareRouter
         arguments:
-            - @request_stack
+            - "@request_stack"
             - %domain%
-            - @router
+            - "@router"
             - %tahoe_multi_tenancy.subdomain_strategy%
             - %tahoe_multi_tenancy.registration_subscriber.redirect_route%
     kernel.listener.tenant_aware_listener:
         class: Tahoe\Bundle\MultiTenancyBundle\EventListener\TenantAwareListener
         arguments:
-            - @doctrine.orm.entity_manager
-            - @tahoe.multi_tenancy.tenant_resolver
+            - "@doctrine.orm.entity_manager"
+            - "@tahoe.multi_tenancy.tenant_resolver"
         tags:
             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
 
     tahoe.multi_tenancy.registration_manager:
         class: %tahoe_multi_tenancy.registration_manager.class%
         arguments:
-            - @doctrine.orm.entity_manager
-            - @tahoe.multi_tenancy.tenant.factory
-            - @tahoe.multi_tenancy.tenant_user_handler
-            - @logger
-            - @?tahoe.multi_tenancy.gateway.recurly
+            - "@doctrine.orm.entity_manager"
+            - "@tahoe.multi_tenancy.tenant.factory"
+            - "@tahoe.multi_tenancy.tenant_user_handler"
+            - "@logger"
+            - "@?tahoe.multi_tenancy.gateway.recurly"

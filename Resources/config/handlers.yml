@@ -2,14 +2,14 @@ services:
     tahoe.multi_tenancy.invitation_handler:
         class: Tahoe\Bundle\MultiTenancyBundle\Handler\InvitationHandler
         arguments:
-            - @doctrine.orm.entity_manager
-            - @tahoe.multi_tenancy.invitation_factory
-            - @tahoe.multi_tenancy.invitation_repository
-            - @tahoe.multi_tenancy.tenant_user_handler
-            - @user_repository
+            - "@doctrine.orm.entity_manager"
+            - "@tahoe.multi_tenancy.invitation_factory"
+            - "@tahoe.multi_tenancy.invitation_repository"
+            - "@tahoe.multi_tenancy.tenant_user_handler"
+            - "@user_repository"
     tahoe.multi_tenancy.tenant_user_handler:
         class: Tahoe\Bundle\MultiTenancyBundle\Handler\TenantUserHandler
         arguments:
-            - @doctrine.orm.entity_manager
-            - @tahoe.multi_tenancy.tenant_user_factory
-            - @tahoe.multi_tenancy.tenant_user_repository
+            - "@doctrine.orm.entity_manager"
+            - "@tahoe.multi_tenancy.tenant_user_factory"
+            - "@tahoe.multi_tenancy.tenant_user_repository"
