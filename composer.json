@@ -1,9 +1,9 @@
 {
-    "name": "develth/multi-tenancy-bundle",
+    "name": "tahoelimited/multi-tenancy-bundle",
     "type": "symfony-bundle",
     "description": "A multi tenancy bundle for symfony 2 apps",
     "keywords": ["user", "tenant", "tenancy"],
-    "homepage": "https://github.com/develth/multi-tenancy-bundle",
+    "homepage": "https://github.com/tahoelimited/multi-tenancy-bundle",
     "license": "MIT",
     "authors": [
         {
