@@ -1,6 +1,6 @@
 Tahoe\Bundle\MultiTenancyBundle\Entity\TenantUser:
     type: entity
-    table: th_mt_tenant_user
+    table: tenant_user
     repositoryClass: Tahoe\Bundle\MultiTenancyBundle\Repository\TenantUserRepository
     id:
         tenant:

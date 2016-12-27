@@ -1,6 +1,6 @@
 Tahoe\Bundle\MultiTenancyBundle\Entity\Invitation:
     type: entity
-    table: th_mt_invitation
+    table: tenant_invitation
     repositoryClass: Tahoe\Bundle\MultiTenancyBundle\Repository\InvitationRepository
     fields:
         id:
