@@ -1,5 +1,5 @@
 tenantuser_index:
-    pattern:  /users
+    path:  /users
     defaults: { _controller: "tenantuser_crud_controller:indexAction" }
 
 admin_tenant_user_handle_action:
