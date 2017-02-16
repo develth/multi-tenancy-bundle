@@ -77,7 +77,7 @@ class RegistrationManager
         $user->setActiveTenant($tenant);
         $this->entityManager->flush();
 
-        $this->tenantUserHandler->addUserToTenant($user, $tenant, array('ROLE_ADMIN'));
+        $this->tenantUserHandler->addUserToTenant($user, $tenant, array('ROLE_TENANT_ADMIN'));
         $this->entityManager->flush();
 
         // we create a new account for gateway
