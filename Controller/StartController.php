@@ -10,7 +10,7 @@ class StartController extends Controller
     public function indexAction()
     {
         if (!$this->get('tahoe.multi_tenancy.tenant_resolver')->needStartScreen()) {
-            return $this->redirect($this->generateUrl('dashboard_index'));
+            return $this->redirect($this->generateUrl('dashboard'));
         }
         // if we need start screen, we display it
         $tenantUsers = $this->container->get('tahoe.multi_tenancy.tenant_user_repository')->findBy(

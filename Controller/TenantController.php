@@ -51,11 +51,11 @@ class TenantController extends Controller
             $user->setActiveTenant($tenant);
             $this->get('doctrine.orm.entity_manager')->flush();
 
-            return $this->redirect($this->generateUrl('dashboard_index'));
+            return $this->redirect($this->generateUrl('dashboard'));
         }
 
         $url = $this->container
-            ->get('tahoe.multi_tenancy.tenant_aware_router')->generateUrl($tenant, 'dashboard_index');
+            ->get('tahoe.multi_tenancy.tenant_aware_router')->generateUrl($tenant, 'dashboard');
 
         return $this->redirect($url);
     }
