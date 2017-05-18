@@ -16,8 +16,7 @@ use Tahoe\Bundle\MultiTenancyBundle\Repository\TenantUserRepository;
  *
  * @author Konrad Podgórski <konrad.podgorski@gmail.com>
  */
-class TenantUserHandler
-{
+class TenantUserHandler {
 
     /**
      * @var EntityManager
@@ -32,17 +31,16 @@ class TenantUserHandler
      */
     protected $tenantUserFactory;
 
-    function __construct($entityManager, $tenantUserFactory, $tenantUserRepository)
-    {
+    function __construct($entityManager, $tenantUserFactory, $tenantUserRepository) {
         $this->entityManager = $entityManager;
         $this->tenantUserFactory = $tenantUserFactory;
         $this->tenantUserRepository = $tenantUserRepository;
     }
 
     /**
-     * @param MultiTenantUserInterface         $user
+     * @param MultiTenantUserInterface $user
      * @param MultiTenantTenantInterface $tenant
-     * @param array                            $roles
+     * @param array $roles
      *
      * @return \Tahoe\Bundle\MultiTenancyBundle\Entity\TenantUser
      * @throws \Exception
@@ -55,7 +53,7 @@ class TenantUserHandler
         $tenantUser = $this->tenantUserRepository->findOneBy(
             array(
                 'tenant' => $tenant,
-                'user' => $user
+                'user'   => $user,
             )
         );
 
@@ -76,7 +74,7 @@ class TenantUserHandler
     }
 
     /**
-     * @param MultiTenantUserInterface         $user
+     * @param MultiTenantUserInterface $user
      * @param MultiTenantTenantInterface $tenant
      *
      * @return bool
@@ -89,7 +87,7 @@ class TenantUserHandler
         $tenantUser = $this->tenantUserRepository->findOneBy(
             array(
                 'tenant' => $tenant,
-                'user' => $user
+                'user'   => $user,
             )
         );
 
@@ -106,12 +104,11 @@ class TenantUserHandler
     public function addRoleToUserInTenant(
         $role,
         MultiTenantUserInterface $user,
-        MultiTenantTenantInterface $tenant)
-    {
+        MultiTenantTenantInterface $tenant) {
         $tenantUser = $this->tenantUserRepository->findOneBy(
             array(
                 'tenant' => $tenant,
-                'user' => $user
+                'user'   => $user,
             )
         );
 
@@ -127,18 +124,17 @@ class TenantUserHandler
             return true;
         }
 
-        throw new \Exception(sprintf('User with id %d is not a member of tenant with id %d' , $user->getId(), $tenant->getId()));
+        throw new \Exception(sprintf('User with id %d is not a member of tenant with id %d', $user->getId(), $tenant->getId()));
     }
 
     public function removeRoleFromUserInTenant(
         $role,
         MultiTenantUserInterface $user,
-        MultiTenantTenantInterface $tenant)
-    {
+        MultiTenantTenantInterface $tenant) {
         $tenantUser = $this->tenantUserRepository->findOneBy(
             array(
                 'tenant' => $tenant,
-                'user' => $user
+                'user'   => $user,
             )
         );
 
@@ -154,6 +150,29 @@ class TenantUserHandler
             return true;
         }
 
-        throw new \Exception(sprintf('User with id %d is not a member of tenant with id %d' , $user->getId(), $tenant->getId()));
+        throw new \Exception(sprintf('User with id %d is not a member of tenant with id %d', $user->getId(), $tenant->getId()));
+    }
+
+    /**
+     * @param MultiTenantUserInterface $user
+     * @param MultiTenantTenantInterface $tenant
+     *
+     * @return boolean
+     */
+    public function containsUserInTenant(
+        MultiTenantUserInterface $user,
+        MultiTenantTenantInterface $tenant) {
+        $tenantUser = $this->tenantUserRepository->findOneBy(
+            array(
+                'tenant' => $tenant,
+                'user'   => $user,
+            )
+        );
+
+        if ($tenantUser) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

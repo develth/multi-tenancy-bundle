@@ -12,6 +12,7 @@ class Tenant implements MultiTenantTenantInterface
      * @var integer
      */
     protected $id;
+
     /**
      * @var string
      */

@@ -3,7 +3,6 @@
 namespace Tahoe\Bundle\MultiTenancyBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use Tahoe\Bundle\CrudBundle\Controller\CrudController;
 use Tahoe\Bundle\MultiTenancyBundle\Form\UserListType;
 use Tahoe\Bundle\MultiTenancyBundle\Model\MultiTenantUserInterface;
 
